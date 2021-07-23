@@ -73,4 +73,5 @@ class DataGen(Dataset):
     def __getitem__(self, idx):
         return self.vectors[idx]
 
+
 __all__ = ["Data", "DataGen"]

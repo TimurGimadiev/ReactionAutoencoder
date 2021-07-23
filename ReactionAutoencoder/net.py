@@ -72,8 +72,8 @@ class Decoder(Module):
         return output
 
     def generate(self,smi_t, out_neck):
-       max_len = self.data.max_len
-       with torch.no_grad():
+        max_len = self.data.max_len
+        with torch.no_grad():
             # cell state generation
             cell = self.cell(out_neck) # 256, 100, 128
             cell = self.relu(cell)
@@ -98,8 +98,7 @@ class Decoder(Module):
             else:
                 for j, (smi,ind) in enumerate(zip(smi_t, inds)):
                     smi_t[j] = torch.cat((smi[1:], ind[max_len-1].unsqueeze(0)), axis=0)
-       return smi_t
-
+        return smi_t
 
 
 class ReactionEncoder(Module):
@@ -111,8 +110,8 @@ class ReactionEncoder(Module):
         self.decoder = Decoder(input_size, decoder_hidden, decoder_lstm, num_layers=dec_num_layers)
         self.relu = ReLU()
 
-    def forward(self, input):
-        x, t = input
+    def forward(self, inp):
+        x, t = inp
         self.neck_out = self.encoder(x)
         decoded = self.decoder(t, self.neck_out)
         return decoded

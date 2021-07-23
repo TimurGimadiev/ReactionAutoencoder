@@ -9,6 +9,7 @@ from tqdm import tqdm
 
 cur_device = device("cuda:0" if cuda.is_available() else "cpu")
 
+
 class NetTrain:
     def __init__(self, data, max_len=100, encoder_hidden=128, decoder_hidden=128,
                  decoder_lstm=256, batch_size=256, save_file="best_model.torch"):
@@ -32,7 +33,6 @@ class NetTrain:
                                                    min_lr=0.0000001, eps=0.00001, verbose=True)
         self.clipping_value = 0.001
         self.best = 0
-
 
     def train_epoch(self):
         tr = []
@@ -65,7 +65,6 @@ class NetTrain:
         print(" validation_mean: ", mean(val))
         return mean(val)
 
-
     def train_epochs(self, n, val=False, save_best=False):
         best = 0
         for i in range(n):
@@ -93,7 +92,6 @@ class NetTrain:
                     rec_score.append(p == r)
                     rec_smi.append((p, r))
             return mean(rec_score), rec_smi
-
 
     def batch2smi(self, t, data, y=False):
         if not y:
@@ -138,5 +136,6 @@ class NetTrain:
             for i in self.net.neck_out.detach().cpu().numpy():
                 res.append(i)
         return res
+
 
 __all__ = ["NetTrain"]
