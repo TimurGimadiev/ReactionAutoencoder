@@ -10,7 +10,7 @@ setup(
     license='LGPLv3',
     author=['Dr. Timur Gimadiev'],
     author_email=['timur.gimadiev@gmail.com', 'nougmanoff@protonmail.com'],
-    python_requires='>=3.9.0',
+    python_requires='>=3.8.0',
     install_requires=['tqdm>=4.61.0', 'torch>=1.9', 'numpy', 'scikit-learn'],
     classifiers=['Environment :: Plugins',
                  'Intended Audience :: Science/Research',
