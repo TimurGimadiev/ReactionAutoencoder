@@ -1,5 +1,6 @@
 from ReactionAutoencoder import Data, DataGen, NetTrain
 import numpy as np
+
 data = Data("./dataset.shelve")
 data.scan()
 data.train_test_sets(test_fraction=0.1)
