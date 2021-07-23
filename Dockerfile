@@ -6,7 +6,8 @@ RUN pip3 install tqdm numpy scikit-learn ipython
 RUN pip3 install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
 RUN git clone https://github.com/TimurGimadiev/ReactionAutoencoder.git
 RUN cd ReactionAutoencoder && pip3 install -U -e .
-WORKDIR ReactionAutoencoder
+RUN apt install python3-gdbm
+WORKDIR ReactionAutoencoder/Data
 
 
 

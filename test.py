@@ -1,6 +1,8 @@
 from ReactionAutoencoder import Data, DataGen, NetTrain
 import numpy as np
 import zipfile
+import os
+os.chdir("./Data")
 with zipfile.ZipFile("dataset.shelve.zip", 'r') as zip_ref:
     zip_ref.extractall("")
 data = Data("dataset.shelve")
