@@ -7,8 +7,10 @@ Neural network architecture close to one published in
 
     virtual -p python3.9 venv
     . venv/bin/activate
-cd to dir with setup file
-
+    git clone https://github.com/TimurGimadiev/ReactionAutoencoder.git
+    cd ReactionAutoencoder
     pip install -U -e .
+
+
 
 
