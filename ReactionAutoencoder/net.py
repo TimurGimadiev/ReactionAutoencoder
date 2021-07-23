@@ -75,7 +75,7 @@ class Decoder(Module):
         max_len = self.data.max_len
         with torch.no_grad():
             # cell state generation
-            cell = self.cell(out_neck) # 256, 100, 128
+            cell = self.cell(out_neck)
             cell = self.relu(cell)
             cell = self.bnorm_cell(cell)
             cell = cell.unsqueeze(0)
